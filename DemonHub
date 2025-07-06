@@ -889,20 +889,21 @@ sectionContents["السيرفر"] = function()
 		end
 	end)
 end
+-- تخزين حالات التoggles خارج الدالة
+local nameSpamToggles = {false, false, false}
+local colorToggle = false
+local bioToggle = false
+
 sectionContents["الأسماء"] = function()
 	contentFrame:ClearAllChildren()
-
-	local toggles = {}
-	local spamToggles = {}
-	local spamSpeeds = {}
+	contentFrame.CanvasSize = UDim2.new(0,0,0,1300)
 
 	-- اسم ملون
-	local colorToggle = false
 	local colorBtn = Instance.new("TextButton")
-	colorBtn.Text = "اسم ملون (OFF)"
+	colorBtn.Text = colorToggle and "اسم ملون (ON)" or "اسم ملون (OFF)"
 	colorBtn.Size = UDim2.new(0, 260, 0, 35)
 	colorBtn.Position = UDim2.new(0, 10, 0, 10)
-	colorBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	colorBtn.BackgroundColor3 = colorToggle and Color3.fromRGB(0,170,0) or Color3.fromRGB(0,0,0)
 	colorBtn.TextColor3 = Color3.new(1, 1, 1)
 	colorBtn.Font = Enum.Font.SourceSansBold
 	colorBtn.TextSize = 18
@@ -917,8 +918,7 @@ sectionContents["الأسماء"] = function()
 			task.spawn(function()
 				while colorToggle do
 					local color = Color3.fromHSV(tick()%5/5,1,1)
-					local args = {"PickingRPNameColor", color}
-					game.ReplicatedStorage.RE["1RPNam1eColo1r"]:FireServer(unpack(args))
+					game.ReplicatedStorage.RE["1RPNam1eColo1r"]:FireServer("PickingRPNameColor", color)
 					task.wait(0.5)
 				end
 			end)
@@ -926,12 +926,11 @@ sectionContents["الأسماء"] = function()
 	end)
 
 	-- بايو ملون
-	local bioToggle = false
 	local bioBtn = Instance.new("TextButton")
-	bioBtn.Text = "بايو ملون (OFF)"
+	bioBtn.Text = bioToggle and "بايو ملون (ON)" or "بايو ملون (OFF)"
 	bioBtn.Size = UDim2.new(0, 260, 0, 35)
 	bioBtn.Position = UDim2.new(0, 10, 0, 55)
-	bioBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	bioBtn.BackgroundColor3 = bioToggle and Color3.fromRGB(0,170,0) or Color3.fromRGB(0,0,0)
 	bioBtn.TextColor3 = Color3.new(1, 1, 1)
 	bioBtn.Font = Enum.Font.SourceSansBold
 	bioBtn.TextSize = 18
@@ -946,15 +945,14 @@ sectionContents["الأسماء"] = function()
 			task.spawn(function()
 				while bioToggle do
 					local color = Color3.fromHSV(tick()%5/5,1,1)
-					local args = {"PickingRPBioColor", color}
-					game.ReplicatedStorage.RE["1RPNam1eColo1r"]:FireServer(unpack(args))
+					game.ReplicatedStorage.RE["1RPNam1eColo1r"]:FireServer("PickingRPBioColor", color)
 					task.wait(0.5)
 				end
 			end)
 		end
 	end)
 
-	-- سبام أسماء (3)
+	-- سبام أسماء
 	for i=1,3 do
 		local textBox = Instance.new("TextBox")
 		textBox.PlaceholderText = "سبام اسم "..i
@@ -967,10 +965,10 @@ sectionContents["الأسماء"] = function()
 		textBox.Parent = contentFrame
 
 		local toggle = Instance.new("TextButton")
-		toggle.Text = "OFF"
+		toggle.Text = nameSpamToggles[i] and "ON" or "OFF"
 		toggle.Size = UDim2.new(0, 50, 0, 30)
 		toggle.Position = UDim2.new(0, 170, 0, 100+(i-1)*40)
-		toggle.BackgroundColor3 = Color3.fromRGB(0,0,0)
+		toggle.BackgroundColor3 = nameSpamToggles[i] and Color3.fromRGB(0,170,0) or Color3.fromRGB(0,0,0)
 		toggle.TextColor3 = Color3.new(1,1,1)
 		toggle.Font = Enum.Font.SourceSansBold
 		toggle.TextSize = 16
@@ -986,21 +984,18 @@ sectionContents["الأسماء"] = function()
 		speedBox.TextSize = 14
 		speedBox.Parent = contentFrame
 
-		toggles[i] = false
-
 		toggle.MouseButton1Click:Connect(function()
-			toggles[i] = not toggles[i]
-			toggle.Text = toggles[i] and "ON" or "OFF"
-			toggle.BackgroundColor3 = toggles[i] and Color3.fromRGB(0,170,0) or Color3.fromRGB(0,0,0)
+			nameSpamToggles[i] = not nameSpamToggles[i]
+			toggle.Text = nameSpamToggles[i] and "ON" or "OFF"
+			toggle.BackgroundColor3 = nameSpamToggles[i] and Color3.fromRGB(0,170,0) or Color3.fromRGB(0,0,0)
 
-			if toggles[i] then
+			if nameSpamToggles[i] then
 				task.spawn(function()
-					while toggles[i] do
+					while nameSpamToggles[i] do
 						local nameText = textBox.Text
 						local speed = tonumber(speedBox.Text) or 0.4
 						if nameText and nameText~="" then
-							local args = {"RolePlayName", nameText}
-							game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer(unpack(args))
+							game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer("RolePlayName", nameText)
 						end
 						task.wait(speed)
 					end
@@ -1009,7 +1004,7 @@ sectionContents["الأسماء"] = function()
 		end)
 	end
 
-	-- أزرار أسماء أولاد
+	-- أسماء أولاد
 	local boys = {"DemonHub", "رامي", "حسن", "علي", "جاسم", "محمد", "Eν̃̾ịĿ", "ADMIN", "خالد", "عمر"}
 	for i, name in ipairs(boys) do
 		local btn = Instance.new("TextButton")
@@ -1023,29 +1018,28 @@ sectionContents["الأسماء"] = function()
 		btn.Parent = contentFrame
 
 		btn.MouseButton1Click:Connect(function()
-			local args = {"RolePlayName", name}
-			game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer(unpack(args))
+			game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer("RolePlayName", name)
 		end)
 	end
 
-	-- عنوان أسماء بنات
+	-- عنوان بنات
 	local label = Instance.new("TextLabel")
 	label.Text = "أسماء بنات"
 	label.Size = UDim2.new(0, 260, 0, 25)
-	label.Position = UDim2.new(0, 10, 0, 540)
+	label.Position = UDim2.new(0, 10, 0, 550)
 	label.BackgroundTransparency = 1
 	label.TextColor3 = Color3.new(1, 1, 1)
 	label.Font = Enum.Font.SourceSansBold
 	label.TextSize = 18
 	label.Parent = contentFrame
 
-	-- أزرار أسماء بنات
+	-- أسماء بنات
 	local girls = {"مريم", "حوراء", "ياسمين", "سرا", "ميار", "نور", "شيماء", "زهراء", "فاطمة", "هدى"}
 	for i, name in ipairs(girls) do
 		local btn = Instance.new("TextButton")
 		btn.Text = name
 		btn.Size = UDim2.new(0, 125, 0, 25)
-		btn.Position = UDim2.new(0, 10, 0, 570+(i-1)*28)
+		btn.Position = UDim2.new(0, 10, 0, 580+(i-1)*28)
 		btn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		btn.TextColor3 = Color3.new(1,1,1)
 		btn.Font = Enum.Font.SourceSansBold
@@ -1053,8 +1047,7 @@ sectionContents["الأسماء"] = function()
 		btn.Parent = contentFrame
 
 		btn.MouseButton1Click:Connect(function()
-			local args = {"RolePlayName", name}
-			game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer(unpack(args))
+			game.ReplicatedStorage.RE["1RPNam1eTex1t"]:FireServer("RolePlayName", name)
 		end)
 	end
 end
