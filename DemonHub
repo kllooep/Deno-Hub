@@ -244,7 +244,7 @@ sectionContents["اللاعب"] = function()
 	flyBtn.TextSize = 20
 	flyBtn.Parent = contentFrame
 	flyBtn.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/muskarnu/Demon-Hub/ded891eae3a34fdede62fee7161bb048fa803f93/Fly"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/muskarnu/Demon-Hub/main/Fly.txt"))()
 	end)
 
 	-- قوة القفز
