@@ -180,7 +180,7 @@ sectionContents["القائمة الرئيسية"] = function()
 	local texts = {
 		"Ev_Rami",
 		"حسابي روب: Sajwaad",
-		"سكربت DemonHubV0.3"
+		"سكربت DemonHubV0.5"
 	}
 
 	for i, text in ipairs(texts) do
@@ -244,7 +244,7 @@ sectionContents["اللاعب"] = function()
 	flyBtn.TextSize = 20
 	flyBtn.Parent = contentFrame
 	flyBtn.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/muskarnu/Demon-Hub/main/Fly.txt"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/muskarnu/Demon-Hub/main/Fly"))()
 	end)
 
 	-- قوة القفز
