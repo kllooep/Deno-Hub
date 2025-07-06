@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/DemonHub.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/DemonHub"))()
 local args = {
 	"RolePlayName",
 	"Demon-HubV0.5"
