@@ -197,7 +197,7 @@ sectionContents["القائمة الرئيسية"] = function()
 end
 sectionContents["الحدث الجديد"] = function()
 	contentFrame:ClearAllChildren()
-
+contentFrame.CanvasSize = UDim2.new(0, 0, 0, 1300)
 	-- عنوان القسم
 	local titleLabel = Instance.new("TextLabel")
 	titleLabel.Text = "تختيم الحدث"
@@ -225,8 +225,6 @@ sectionContents["الحدث الجديد"] = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/RealzXHub-Community/refs/heads/main/RealzXHub-CarnivalEvent.lua"))()
 	end)
 
-	-- تعديل حجم السكرول لو احتجت
-	contentFrame.CanvasSize = UDim2.new(0, 0, 0, 140)
 end
 -- القسم: السكربتات
 sectionContents["السكربتات"] = function()
