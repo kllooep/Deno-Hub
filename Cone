@@ -22,9 +22,9 @@ InfoTab:AddSection({ "شبيه ريدز" })
 InfoTab:AddParagraph({ "المالك / المطور:", ",@Sajwaad , EV_Rami, ," })
 InfoTab:AddParagraph({ "الفريق:", ",@Sajwaad ,EV_Rami ,Hwrejplq ,PIR_MERO ,mr_Mustafa213 ,I7_Casper , " })
 InfoTab:AddParagraph({ "محاكاة ريدز:", "DemoZHub-Hub" })
-InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com celular não está mais funcionando por algum motivo..."})
-InfoTab:AddButton({"Versão Experimental", function()
+InfoTab:AddParagraph({"هذه ليست التجربة الكاملة السكربت تحت التحديثات!"})
+InfoTab:AddParagraph({"Novidades:", "حسابي تيك@.q.kn"})
+InfoTab:AddButton({"V0.1", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
 
@@ -42,7 +42,7 @@ InfoTab:AddButton({
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
 
 
-TrollTab:AddSection({ "Black Hole" })
+TrollTab:AddSection({ "سكربت ابواب" })
 TrollTab:AddButton({
     Name = "Black Hole",
     Description = " Ativando isso você puxa Parts até o seu personagem",
