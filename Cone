@@ -4,8 +4,8 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
-    SubTitle = "by: Spacecomm Developers (Wx, Galaxy, Why)",
+    Title = "🌌 DemonHub + 🌌 - Spacecomm Developers Brookhaven",
+    SubTitle = "by: Spacecomm Developers (,@Sajwaad,EV_Rami )",
     LoadText = "Spacecomm Developers",
     Flags = "nythrnHub_Broookhaven"
 })
@@ -19,9 +19,9 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 
 InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why, Venom, Luscaa" })
-InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
-InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
+InfoTab:AddParagraph({ "Owner / Developer:", ",@Sajwaad , EV_Rami, ," })
+InfoTab:AddParagraph({ "Colaborações:", ",@Sajwaad ,EV_Rami , , 7, , , " })
+InfoTab:AddParagraph({ "Você está usando:", "Demon-Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
 InfoTab:AddParagraph({"Novidades:", "Lag com celular não está mais funcionando por algum motivo..."})
 InfoTab:AddButton({"Versão Experimental", function()
