@@ -4,10 +4,10 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "🌌 DemonHub + 🌌 - Spacecomm Developers Brookhaven",
+    Title = "DemonHub👹 +  - مطور Brookhaven",
     SubTitle = "by: Spacecomm Developers (,@Sajwaad,EV_Rami )",
-    LoadText = "Spacecomm Developers",
-    Flags = "nythrnHub_Broookhaven"
+    LoadText = " ",
+    Flags = "DemonHub_Broookhaven"
 })
 Window:AddMinimizeButton({
     Button = { Image = "rbxassetid://1120738435", BackgroundTransparency = 0 },
@@ -18,19 +18,19 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 
 
-InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", ",@Sajwaad , EV_Rami, ," })
-InfoTab:AddParagraph({ "Colaborações:", ",@Sajwaad ,EV_Rami , , 7, , , " })
-InfoTab:AddParagraph({ "Você está usando:", "Demon-Hub" })
-InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com celular não está mais funcionando por algum motivo..."})
+InfoTab:AddSection({ "معلومات السكربت" })
+InfoTab:AddParagraph({ " / المطور:", ",@Sajwaad , EV_Rami" })
+InfoTab:AddParagraph({@Sajwaad ,EV_Rami " })
+InfoTab:AddParagraph({ "انت تستخدم:", "Demon-Hub" })
+InfoTab:AddParagraph({"هذه ليست التجربة الكاملةbetaتنبيه:انت تستخدم"})
+InfoTab:AddParagraph({"لأخبار التطوير والتواصل:", ".q.kn"})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
 
 InfoTab:AddSection({ "Rejoin" })
 InfoTab:AddButton({
-    Name = "Rejoin",
+    Name = "إعادة دخول",
     Callback = function()
         local TeleportService = game:GetService("TeleportService")
         TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
@@ -44,8 +44,8 @@ local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid:/
 
 TrollTab:AddSection({ "Black Hole" })
 TrollTab:AddButton({
-    Name = "Black Hole",
-    Description = " Ativando isso você puxa Parts até o seu personagem",
+    Name = "سكربت ابواب",
+    Description = " هذا السكربت يجلب الأجزاء في السيرفر",
     Callback = function()
         local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -494,7 +494,7 @@ end
 })
 
 
-TrollTab:AddSection({ "Avatar RGB" })
+TrollTab:AddSection({ "أفتار RGB" })
 
 local colors = { "Bright red", "Lime green", "Bright blue", "Bright yellow", "Bright cyan", "Hot pink", "Royal purple" }
 local rgbEnabled = false
@@ -518,7 +518,7 @@ local function toggleRGBCharacter(enabled)
 end
 
 TrollTab:AddToggle({
-    Name = "RGB Character",
+    Name = "RGB شخصية",
     Description = "Deixa seu personagem RGB",
     Default = false,
     Callback = function(value)
@@ -527,7 +527,7 @@ TrollTab:AddToggle({
 })
 
 
-TrollTab:AddSection({ "Cabelo RGB" })
+TrollTab:AddSection({ "شعر RGB" })
 local hairColors = {
     Color3.new(1, 1, 0), Color3.new(0, 0, 1), Color3.new(1, 0, 1), Color3.new(1, 1, 1),
     Color3.new(0, 1, 0), Color3.new(0.5, 0, 1), Color3.new(1, 0.647, 0), Color3.new(0, 1, 1)
@@ -548,7 +548,7 @@ end
 
 
 TrollTab:AddToggle({
-    Name = "Cabelo RGB",
+    Name = "شعر RGB",
     Description = "Deixa Seu Cabelo RGB",
     Default = false,
     Callback = function(value)
@@ -561,10 +561,10 @@ TrollTab:AddToggle({
 
 
 -- Tab 4: Anti Sit
-TrollTab:AddSection({ "Anti Sit" })
+TrollTab:AddSection({ "Anti sit" })
 TrollTab:AddToggle({
-    Name = "Anti Sit",
-    Description = "Não Deixa seu personagem Sentar",
+    Name = "مضاد جلوس",
+    Description = "",
     Default = false,
     Callback = function(Value)
         local player = game.Players.LocalPlayer
@@ -651,7 +651,7 @@ local RootPart = Character and Character:WaitForChild("HumanoidRootPart")
 local function cleanupCouch()
     local char = LocalPlayer.Character
     if char then
-        local couch = char:FindFirstChild("Chaos.Couch") or LocalPlayer.Backpack:FindFirstChild("Chaos.Couch")
+        local couch = char:FindFirstChild("كنبة.Couch") or LocalPlayer.Backpack:FindFirstChild("كنبة.Couch")
         if couch then
             couch:Destroy()
         end
@@ -680,10 +680,10 @@ if Humanoid then
     end)
 end
 
--- Função KillPlayerCouch
+-- Função قتل لاعب كنبة
 local function KillPlayerCouch()
     if not selectedPlayerName then
-        warn("Erro: Nenhum jogador selecionado")
+        warn("Erro: لم يتم تحديد لاعب")
         return
     end
     local target = Players:FindFirstChild(selectedPlayerName)
@@ -694,7 +694,7 @@ local function KillPlayerCouch()
 
     local char = LocalPlayer.Character
     if not char then
-        warn("Erro: Personagem do jogador local não encontrado")
+        warn("Erro: لم يتم العثور على لاعب")
         return
     end
     local hum = char:FindFirstChildOfClass("Humanoid")
@@ -776,7 +776,7 @@ local function KillPlayerCouch()
     end)
 end
 
--- Função BringPlayerLLL
+-- Função سحب اللاعبين
 local function BringPlayerLLL()
     if not selectedPlayerName then
         warn("Erro: Nenhum jogador selecionado")
@@ -875,15 +875,15 @@ local function BringPlayerLLL()
     end)
 end
 
--- Função BringWithCouch
+-- سحب كنبة
 local function BringWithCouch()
     local targetPlayer = Players:FindFirstChild(getgenv().Target)
     if not targetPlayer then
-        warn("Erro: Nenhum jogador alvo selecionado")
+        warn("Erro: لم يتم تحديد لاعب")
         return
     end
     if not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        warn("Erro: Jogador alvo sem personagem ou HumanoidRootPart")
+        warn("Erro: لم يتم تحديد لاعب")
         return
     end
 
@@ -894,11 +894,11 @@ local function BringWithCouch()
 
     local couch = LocalPlayer.Backpack:WaitForChild("Couch", 2)
     if not couch then
-        warn("Erro: Sofá não encontrado no Backpack")
+        warn("Erro: ليس هناك كنبة في الحقيبة")
         return
     end
 
-    couch.Name = "Chaos.Couch"
+    couch.Name = "كنبة.Couch"
     local seat1 = couch:FindFirstChild("Seat1")
     local seat2 = couch:FindFirstChild("Seat2")
     local handle = couch:FindFirstChild("Handle")
@@ -959,15 +959,15 @@ local function BringWithCouch()
     ReplicatedStorage.RE["1Clea1rTool1s"]:FireServer("ClearAllTools")
 end
 
--- Função KillWithCouch
+-- Função قتل كنبة
 local function KillWithCouch()
     local targetPlayer = Players:FindFirstChild(getgenv().Target)
     if not targetPlayer then
-        warn("Erro: Nenhum jogador alvo selecionado")
+        warn("Erro: لم يتم تحديد لاعب")
         return
     end
     if not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        warn("Erro: Jogador alvo sem personagem ou HumanoidRootPart")
+        warn("Erro: ليس هناك هدف")
         return
     end
 
@@ -978,11 +978,11 @@ local function KillWithCouch()
 
     local couch = LocalPlayer.Backpack:WaitForChild("Couch", 2)
     if not couch then
-        warn("Erro: Sofá não encontrado no Backpack")
+        warn("Erro: الكنبة ليست في الحقيبة")
         return
     end
 
-    couch.Name = "Chaos.Couch"
+    couch.Name = "كنبة.Couch"
     local seat1 = couch:FindFirstChild("Seat1")
     local seat2 = couch:FindFirstChild("Seat2")
     local handle = couch:FindFirstChild("Handle")
@@ -1057,7 +1057,7 @@ end
     end
 
     local killDropdown = Troll:AddDropdown({
-        Name = "Selecionar Jogador",
+        Name = "حدد لاعب",
         Options = getPlayerList(),
         Default = "",
         Callback = function(value)
@@ -1068,7 +1068,7 @@ end
     })
 
     Troll:AddButton({
-        Name = "Atualizar Player List",
+        Name = "تحديث القائمة",
         Callback = function()
             local tablePlayers = Players:GetPlayers()
             local newPlayers = {}
@@ -1093,10 +1093,10 @@ end
     })
 
     Troll:AddButton({
-        Name = "Teleportar até o Player",
+        Name = "تنقل للاعب",
         Callback = function()
             if not selectedPlayerName or not Players:FindFirstChild(selectedPlayerName) then
-                print("Erro: Player não selecionado ou não existe")
+                print("Erro: اللاعب غير موجود جرب تحديث القائمه")
                 return
             end
             local character = LocalPlayer.Character
@@ -1110,13 +1110,13 @@ end
             if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 humanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
             else
-                print("Erro: Player alvo não encontrado ou sem HumanoidRootPart")
+                print("Erro: لم يتم العثور على اللاعب")
             end
         end
     })
 
     Troll:AddToggle({
-        Name = "Spectar Player",
+        Name = "تجسس",
         Default = false,
         Callback = function(value)
             local Camera = workspace.CurrentCamera
@@ -1157,8 +1157,8 @@ end
     local MethodSection = Troll:AddSection({ Name = "Métodos" })
 
     Troll:AddDropdown({
-        Name = "Selecionar Método para Matar",
-        Options = {"Bus", "Couch", "Couch Sem ir até o alvo [BETA]"},
+        Name = "طرق قتل",
+        Options = {"باص", "كنبة", كنبةBeta"},
         Default = "",
         Callback = function(value)
             methodKill = value
