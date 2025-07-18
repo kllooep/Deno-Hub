@@ -1112,6 +1112,139 @@ contentFrame.CanvasSize = UDim2.new(0, 0, 0, 1300)
 		end)
 	end
 end
+sectionContents["الطقس والجودة"] = function()
+	contentFrame:ClearAllChildren()
+	contentFrame.CanvasSize = UDim2.new(0, 0, 0, 340)
+
+	local title = Instance.new("TextLabel")
+	title.Text = "تأثيرات الطقس والجودة"
+	title.Size = UDim2.new(1, -20, 0, 30)
+	title.Position = UDim2.new(0, 10, 0, 10)
+	title.BackgroundTransparency = 1
+	title.TextColor3 = Color3.fromRGB(100, 170, 255)
+	title.Font = Enum.Font.SourceSansBold
+	title.TextSize = 22
+	title.TextXAlignment = Enum.TextXAlignment.Left
+	title.Parent = contentFrame
+
+	local function createButton(text, positionY, onClick)
+		local btn = Instance.new("TextButton")
+		btn.Text = text
+		btn.Size = UDim2.new(0, 260, 0, 35)
+		btn.Position = UDim2.new(0, 10, 0, positionY)
+		btn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		btn.TextColor3 = Color3.new(1, 1, 1)
+		btn.Font = Enum.Font.SourceSansBold
+		btn.TextSize = 18
+		btn.Parent = contentFrame
+		btn.MouseButton1Click:Connect(onClick)
+	end
+
+	-- الزر 1: مظهر سينمائي
+	createButton(" RTX", 50, function()
+		local Lighting = game:GetService("Lighting")
+		local Bloom = Instance.new("BloomEffect")
+		local Blur = Instance.new("BlurEffect")
+		local ColorCor = Instance.new("ColorCorrectionEffect")
+		local SunRays = Instance.new("SunRaysEffect")
+		local Sky = Instance.new("Sky")
+		local Atm = Instance.new("Atmosphere")
+
+		for _, v in pairs(Lighting:GetChildren()) do
+			v:Destroy()
+		end
+
+		Bloom.Parent = Lighting
+		Blur.Parent = Lighting
+		ColorCor.Parent = Lighting
+		SunRays.Parent = Lighting
+		Sky.Parent = Lighting
+		Atm.Parent = Lighting
+
+		Bloom.Intensity = 0.3
+		Bloom.Size = 10
+		Bloom.Threshold = 0.8
+
+		Blur.Size = 5
+		ColorCor.Brightness = 0.1
+		ColorCor.Contrast = 0.5
+		ColorCor.Saturation = -0.3
+		ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+		SunRays.Intensity = 0.075
+		SunRays.Spread = 0.727
+
+		Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+		Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+		Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+		Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+		Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+		Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+		Sky.SunAngularSize = 10
+
+		Lighting.Ambient = Color3.fromRGB(2,2,2)
+		Lighting.Brightness = 2.25
+		Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+		Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+		Lighting.EnvironmentDiffuseScale = 0.2
+		Lighting.EnvironmentSpecularScale = 0.2
+		Lighting.GlobalShadows = true
+		Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+		Lighting.ShadowSoftness = 0.2
+		Lighting.ClockTime = 17
+		Lighting.GeographicLatitude = 45
+		Lighting.ExposureCompensation = 0.5
+
+		Atm.Density = 0.364
+		Atm.Offset = 0.556
+		Atm.Color = Color3.fromRGB(199, 175, 166)
+		Atm.Decay = Color3.fromRGB(44, 39, 33)
+		Atm.Glare = 0.36
+		Atm.Haze = 1.72
+	end)
+
+	-- الزر 2: شتاء
+	createButton("شتاء", 95, function()
+		local Lighting = game:GetService("Lighting")
+		Lighting.Brightness = 0.6
+		Lighting.OutdoorAmbient = Color3.fromRGB(180, 190, 220)
+		Lighting.FogEnd = 500
+		Lighting.FogStart = 50
+		Lighting.FogColor = Color3.fromRGB(210, 220, 255)
+		Lighting.ClockTime = 7
+		Lighting.ShadowSoftness = 0.7
+		Lighting.EnvironmentDiffuseScale = 0.3
+		Lighting.EnvironmentSpecularScale = 0.1
+		if Lighting:FindFirstChild("Atmosphere") then
+			Lighting.Atmosphere.Density = 0.8
+			Lighting.Atmosphere.Offset = 0.4
+		end
+	end)
+
+	-- الزر 3: الصباح
+	createButton("الصباح", 140, function()
+		game:GetService("Lighting").ClockTime = 14
+	end)
+
+	-- الزر 4: ظهر
+	createButton("ظهر", 185, function()
+		local Lighting = game:GetService("Lighting")
+		Lighting.Brightness = 1.8
+		Lighting.OutdoorAmbient = Color3.fromRGB(255, 190, 150)
+		Lighting.FogEnd = 700
+		Lighting.FogStart = 150
+		Lighting.FogColor = Color3.fromRGB(255, 200, 160)
+		Lighting.ClockTime = 16
+		Lighting.ShadowSoftness = 0.4
+		Lighting.EnvironmentDiffuseScale = 0.7
+		Lighting.EnvironmentSpecularScale = 0.3
+	end)
+
+	-- الزر 5: ليل
+	createButton("ليل", 230, function()
+		game:GetService("Lighting").ClockTime = 19
+	end)
+end
 -- إنشاء أزرار الأقسام
 for i, name in ipairs(sectionNames) do
 	local button = Instance.new("TextButton")
