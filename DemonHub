@@ -156,7 +156,7 @@ dragBar.InputBegan:Connect(function(input)
 end)
 
 -- أسماء الأقسام
-local sectionNames = {"القائمة الرئيسية", "الحدث الجديد", "السكربتات", "اللاعب", "التخريب", "السكن", "الحماية", "السيارات", "السيرفر", "الأسماء"}
+local sectionNames = {"القائمة الرئيسية", "الحدث الجديد", "السكربتات", "اللاعب", "مميزات خارقة (New)", "التخريب", "السكن", "الحماية", "السيارات", "السيرفر", "الأسماء", "الطقس والجودة"}
 -- تخزين حالة التبديل لكل ميزة للحفاظ على الحالة عند التنقل
 local playerSettings = {
 	jumpOn = false,
@@ -395,6 +395,54 @@ humanoid.WalkSpeed = 16
 			end
 		end
 	end)
+end
+sectionContents["مميزات خارقة (New)"] = function()
+    contentFrame:ClearAllChildren()
+    contentFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+
+    -- عنوان القسم
+    local title = Instance.new("TextLabel")
+    title.Text = "مميزات خارقة (New)"
+    title.Size = UDim2.new(1, -20, 0, 40)
+    title.Position = UDim2.new(0, 10, 0, 10)
+    title.BackgroundColor3 = Color3.fromRGB(0, 0, 120)
+    title.TextColor3 = Color3.new(1, 1, 1)
+    title.Font = Enum.Font.SourceSansBold
+    title.TextSize = 22
+    title.Parent = contentFrame
+
+    -- زر فلنق نقرة
+    local flingBtn = Instance.new("TextButton")
+    flingBtn.Text = "فلنق نقرة"
+    flingBtn.Size = UDim2.new(0, 260, 0, 35)
+    flingBtn.Position = UDim2.new(0, 10, 0, 60)
+    flingBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    flingBtn.TextColor3 = Color3.new(1, 1, 1)
+    flingBtn.Font = Enum.Font.SourceSansBold
+    flingBtn.TextSize = 18
+    flingBtn.Parent = contentFrame
+
+    flingBtn.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/ccc"))()
+    end)
+
+    -- زر تجميد حقيقي + مضاد بانق
+    local freezeBtn = Instance.new("TextButton")
+    freezeBtn.Text = "تجميد حقيقي + مضاد بانق"
+    freezeBtn.Size = UDim2.new(0, 260, 0, 35)
+    freezeBtn.Position = UDim2.new(0, 10, 0, 105)
+    freezeBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    freezeBtn.TextColor3 = Color3.new(1, 1, 1)
+    freezeBtn.Font = Enum.Font.SourceSansBold
+    freezeBtn.TextSize = 18
+    freezeBtn.Parent = contentFrame
+
+    freezeBtn.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/freezing.txt"))()
+    end)
+
+    -- ضبط CanvasSize بعد الأزرار
+    contentFrame.CanvasSize = UDim2.new(0, 0, 0, 160)
 end
 
 -- القسم: التخريب
