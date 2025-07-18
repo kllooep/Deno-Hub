@@ -413,7 +413,7 @@ sectionContents["مميزات خارقة (New)"] = function()
 
     -- زر فلنق نقرة
     local flingBtn = Instance.new("TextButton")
-    flingBtn.Text = "فلنق نقرة"
+    flingBtn.Text = "هالة ابواب💀"
     flingBtn.Size = UDim2.new(0, 260, 0, 35)
     flingBtn.Position = UDim2.new(0, 10, 0, 60)
     flingBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -423,7 +423,7 @@ sectionContents["مميزات خارقة (New)"] = function()
     flingBtn.Parent = contentFrame
 
     flingBtn.MouseButton1Click:Connect(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/ccc"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/Doors_aura.txt"))()
     end)
 
     -- زر تجميد حقيقي + مضاد بانق
@@ -441,8 +441,6 @@ sectionContents["مميزات خارقة (New)"] = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/kllooep/Deno-Hub/main/freezing.txt"))()
     end)
 
-    -- ضبط CanvasSize بعد الأزرار
-    contentFrame.CanvasSize = UDim2.new(0, 0, 0, 160)
 end
 
 -- القسم: التخريب
