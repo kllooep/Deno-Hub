@@ -4,9 +4,9 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = " DemoZHub + 👹 - EVILكلان مطورين Brookhaven",
+    Title = " سكربت مال خمط لعيون مايا خليفة اقصد المطور خليفة + 👹 -  Brookhaven",
     SubTitle = "by: Evil Developers (,@Sajwaad,Hwrejplq)",
-    LoadText = "EVIL مطورين",
+    LoadText = "يوجي خامط هذا",
     Flags = "DemoZHub"
 })
 Window:AddMinimizeButton({
@@ -20,7 +20,7 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 InfoTab:AddSection({ "شبيه ريدز" })
 InfoTab:AddParagraph({ "المالك / المطور:", ",@Sajwaad , EV_Rami, ," })
-InfoTab:AddParagraph({ "الفريق:", ",@Sajwaad ,EV_Rami ,Hwrejplq ,PIR_MERO ,mr_Mustafa213 ,I7_Casper , " })
+InfoTab:AddParagraph({ "الفريق:", ",@Sajwaad ,EV_Rami , , " })
 InfoTab:AddParagraph({ "محاكاة ريدز:", "DemoZHub-Hub" })
 InfoTab:AddParagraph({"هذه ليست التجربة الكاملة السكربت تحت التحديثات!"})
 InfoTab:AddParagraph({"Novidades:", "حسابي تيك@.q.kn"})
